@@ -1,0 +1,27 @@
+FROM mambaorg/micromamba:latest
+
+MAINTAINER Shiv Upadhyay <shivnupadhyay@gmail.com>
+
+COPY --chown=micromamba:micromamba ./condarc ~/.mambarc
+COPY --chown=micromamba:micromamba ./environment.yml /tmp/
+
+RUN micromamba info && \
+    micromamba install -n base -f /tmp/environment.yml
+
+RUN sudo apt-get update && \
+    sudo apt-get install -y -qq \
+      git \
+      gcc \
+      swig \
+      wget
+RUN wget \
+    https://raw.githubusercontent.com/cclib/cclib/master/requirements.txt \
+    && cat requirements.txt
+RUN python -m pip install -r requirements.txt
+
+# RUN rm -f /tmp/environment.yml
+# RUN rm -f requirements.txt
+# RUN rm -rf ~/.cache/pip
+# RUN rm -rf /var/lib/apt/lists/*
+
+ENTRYPOINT ["/usr/bin/env"]
