@@ -9,11 +9,11 @@ RUN mamba info -a
 RUN --mount=type=cache,target=/opt/conda/pkgs mamba env create -f /tmp/environment.yml -p /env
 
 RUN apt-get update && \
-    apt-get install -y -qq \
+    apt-get install -y -qq  --no-install-recommends \
+      curl \
       gcc \
-      swig \
-      wget
-RUN wget \
+      swig
+RUN curl -o requirements.txt \
     https://raw.githubusercontent.com/cclib/cclib/master/requirements.txt \
     && cat requirements.txt
 RUN conda run -p /env python -m pip install -r requirements.txt
