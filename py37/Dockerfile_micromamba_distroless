@@ -18,20 +18,10 @@ RUN wget \
     && cat requirements.txt
 RUN conda run -p /env python -m pip install -r requirements.txt
 
-RUN rm -f /tmp/environment.yml
-RUN rm -f requirements.txt
-RUN rm -rf /root/.cache/pip
-RUN rm -rf /var/lib/apt/lists/*
-
-RUN rm -f /env/bin/perl
-RUN rm -f /env/bin/perl5.30.0
-RUN rm -rf /env/conda-meta
-RUN rm -rf /env/lib/python3.7/site-packages/pip
-RUN rm -rf /env/share/man
-RUN rm -rf /env/share/terminfo
-RUN find /env -name '__pycache__' -type d -exec rm -rf '{}' '+'
-RUN find /env -name '*.a' -type f -exec rm -f '{}' '+'
-
 FROM gcr.io/distroless/base-debian10:debug
 
 COPY --from=conda /env /env
+
+# Local Variables:
+# mode: dockerfile
+# End:
