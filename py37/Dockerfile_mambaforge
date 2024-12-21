@@ -1,4 +1,4 @@
-FROM condaforge/mambaforge:latest as base
+FROM condaforge/mambaforge:latest@sha256:050753d138b6708128c9bb45055a9d943f06363f32f63a96f7dd5f304ada52a6 as base
 
 LABEL org.opencontainers.image.authors="Shiv Upadhyay <shivnupadhyay@gmail.com>, Eric Berquist <eric.berquist@gmail.com>"
 
