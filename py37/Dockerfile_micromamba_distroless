@@ -1,4 +1,4 @@
-FROM condaforge/mambaforge:latest as conda
+FROM condaforge/mambaforge:latest@sha256:050753d138b6708128c9bb45055a9d943f06363f32f63a96f7dd5f304ada52a6 as conda
 
 LABEL authors="Shiv Upadhyay <shivnupadhyay@gmail.com>, Eric Berquist <eric.berquist@gmail.com>"
 
@@ -18,7 +18,7 @@ RUN curl -o requirements.txt \
     && cat requirements.txt
 RUN conda run -p /env python -m pip install -r requirements.txt
 
-FROM gcr.io/distroless/base-debian10:debug
+FROM gcr.io/distroless/base-debian10:debug@sha256:0828a5cfb40820d9110d4fb379edfca129ff5ec01d32d4f8acfd60173e2c49f3
 
 COPY --from=conda /env /env
 
