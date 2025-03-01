@@ -1,4 +1,4 @@
-FROM condaforge/miniforge3:latest@sha256:e305bc5f6d1838407f60a695c57743b7b494f52e9ed7331db588814d83472318 as base
+FROM condaforge/miniforge3:latest@sha256:5b1208a59c237e88750c89a299aa7f4f2794aafb59351a7653d784c59c46fb36 as base
 
 LABEL org.opencontainers.image.authors="Shiv Upadhyay <shivnupadhyay@gmail.com>, Eric Berquist <eric.berquist@gmail.com>"
 
