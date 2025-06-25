@@ -1,4 +1,4 @@
-FROM mambaorg/micromamba:latest@sha256:08bff50efbd3285625ab6730021853a496d440bdccdb02542588e3252978c1d9 as base
+FROM mambaorg/micromamba:latest@sha256:6a3f9328e75bea8a7374edea5c7010bd9536aa16c515d505d31022a04e28968a as base
 
 LABEL org.opencontainers.image.authors="Shiv Upadhyay <shivnupadhyay@gmail.com>, Eric Berquist <eric.berquist@gmail.com>"
 
